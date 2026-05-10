@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual env
+venv/
+.env/
+teachflow/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+
+# Logs
+*.log
+
+# Database
+*.sqlite3
+
+# Pytest
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Alembic
+alembic/versions/*.pyc
