@@ -1,12 +1,12 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    APP_Name: str = "My App"
+    APP_Name: str = "TeachFlow"
     DEBUG: bool = True
 
     DB_HOST: str = "localhost"
     DB_PORT: int = 5432
-    DB_NAME: str = "app_db"
+    DB_NAME: str = "teachflow_db"
     DB_USER: str = "postgres"
     DB_PASSWORD: str = "postgres"
 
@@ -19,7 +19,8 @@ class Settings(BaseSettings):
         return(
             f"postgresql+asyncpg://"
             f"{self.DB_USER}:{self.DB_PASSWORD}"
-            f"@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+            f"@{self.DB_HOST}:{self.DB_PORT}"
+            f"/{self.DB_NAME}"
         )
     
     model_config = SettingsConfigDict(

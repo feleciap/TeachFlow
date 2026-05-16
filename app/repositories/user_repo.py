@@ -9,6 +9,14 @@ class UserRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
+    async def get_by_id(self,user_id: int,) -> User | None:
+
+        stmt = select(User).where(User.id == user_id)
+
+        result = await self.session.execute(stmt)
+
+        return result.scalar_one_or_none()
+
     async def get_by_telegram_id(self, telegram_id: int,) -> User | None:
         stmt = select(User).where(User.telegram_id == telegram_id)
 
@@ -30,3 +38,4 @@ class UserRepository:
         await self.session.refresh(user)
 
         return user
+    
